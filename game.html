@@ -6,15 +6,79 @@
     <title>Premier League Virtual Random Result Generator</title>
     <link rel="icon" href="./images/pl-main-logo.png">
     <style>
-        body {
+
+body {
             font-family: Arial, sans-serif;
-            background-color: blueviolet;
+            background-color: blueviolet; /* Ensure this line is present */
             font-weight: bolder;
         }
+
+        /*nav bar css start here*/
+        
+        nav{
+    background-color: ;
+   
+    
+                }
+            nav ul{
+                width: 100%;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav li{
+                height: 50px;
+            }
+            nav a{
+                height: 100%;
+                padding: 0 50px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                color: black;
+            }
+            nav a:hover{
+                background-color:#f0f0f0;
+            }
+            nav li:first-child{
+                margin-right: 100px;
+                
+            }
+            .slidebar{
+                position: fixed;
+                top:0;
+                right: 0;
+                height: 100vh;
+                width: 250px;
+                z-index: 999;
+                background-color: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(10px);
+                box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content:flex-start;
+            }
+            .slidebarli{
+                width: 100%;
+            }
+            .slidebar a{
+                width: 100%;
+
+            }
+            .menuButton{
+                display: none;
+                }
+           
+
+        /*nar bar css ends here*/
+
         table {
             width: 100%; /* Change to 100% */
             margin: 20px auto;
             border-collapse: collapse;
+            
         }
         table, th, td {
             border: 5px solid black;
@@ -22,12 +86,18 @@
         th, td {
             padding: 10px;
             text-align: center; /* Center text in all cells */
+           
+        }
+        td{
+            font-weight: bolder;
         }
         th {
             background-color: orange;
+            font-weight: bolder;
         }
         h2 {
             text-align: center;
+            font-weight: bolder;
         }
         button {
             display: block;
@@ -45,13 +115,102 @@
         }
 
         .reset {
+            margin-top: 10px;
             background-color: red;
             border-radius: 0 5px;
             color: black;
         }
-    </style>
+        @media(max-width: 600px) {
+            .hideOnMobile {
+                display: none;
+            }
+            .menuButton {
+                display: block; /* Show hamburger icon */
+                margin-left: auto;
+                padding: 10px;
+            }
+            
+            .button-container {
+        flex-direction: column; /* Stack buttons vertically on mobile */
+        
+    }
+
+    .button-container button {
+        margin: 15px 0; /* Add vertical space between buttons */
+    }
+
+    .prediction-info {
+    text-align: center; /* Center the text */
+    font-size: 16px; /* Adjust the font size */
+    margin: 20px 0; /* Space above and below the paragraph */
+    color: #333; /* Change the text color */
+    }
+
+        
+        }
+
+        .button-container {
+        display: flex;
+        justify-content: space-between; /* Space between buttons */
+        margin: 20px auto; /* Adjusts vertical spacing */
+        width: 80%; /* Set width to fit your layout */
+    }
+
+        .button-container button {
+         flex: 1; /* Allow buttons to grow and fill the container */
+         margin: 0 15px; /* Add space between buttons */
+        }
+
+        .terms-container {
+        text-align: center; /* Center-aligns the checkbox and label */
+        margin-top: 20px; /* Space above the terms paragraph */
+    }
+
+        .prediction-info {
+        text-align: center; /* Center the text */
+        font-size: ; /* Adjust the font size */
+        margin: 20px 0; /* Space above and below the paragraph */
+        color: #333; /* Change the text color */
+        font-size: larger;
+    }
+
+</style>
 </head>
 <body>
+    <!--nav bar start here-->
+
+    <nav>
+        <ul class="slidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#5f6368">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg></a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Forum</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul>
+            <li style="margin-right: 200px;"><img src="./images/pl-main-logo.png" alt="">
+            <li class="hideOnMobile"><a href="#">blog</a></li>
+            <li class="hideOnMobile"><a href="#">poduct</a></li>
+            <li class="hideOnMobile"><a href="#">about</a></li>
+            <li class="hideOnMobile"><a href="#">forum</a></li>
+            <li class="hideOnMobile"><a href="#">login</a></li>
+            <li class="menuButton" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg></a></li>
+        </ul>
+    </nav>
+
+
+    <!--nav bar section ends here-->
+    
+    
+    
     <h2>Premier League Fixtures</h2>
 
     <table id="fixturesTable">
@@ -67,12 +226,38 @@
         <tbody>
             <!-- Rows will be generated by JavaScript -->
         </tbody>
-    </table>
+    </table><!--table ends here-->
 
-    <button onclick="startGame()">Start</button>
-    <button class="reset" onclick="resetGame()">Reset</button>
+    <div class="button-container">
+        <button onclick="startGame()">Start</button>
+        <button class="reset" onclick="resetGame()">Reset</button>
+    </div>
+    
+    <!--terms and condition start from here-->
+    <p class="terms-container">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">I accept the terms and conditions.</label>
+    </p>
+    
+
+    <p class="prediction-info">
+       <a href="" onclick="handlePredictionClick()">Click here </a> for match predictions with a 75% accuracy guarantee.
+    </p>
+    
 
     <script>
+        // nav bar function button for mobile
+
+        function showSidebar() {
+            let slidebar = document.querySelector('.slidebar')
+            slidebar.style.display = 'flex'
+        }
+        function hideSidebar(){
+            let slidebar =document.querySelector('.slidebar')
+            slidebar.style.display = 'none'
+        }   
+
+        // nav bar function button for mobile ends here
         let teams = [
             { name: "BOU", img: "./images/t91.png" },
             { name: "BRE", img: "./images/t94.png" },
@@ -162,6 +347,18 @@
 
         // Initial display of fixtures
         resetGame();
+
+        function handlePredictionClick() {
+    const termsCheckbox = document.getElementById('terms');
+    if (!termsCheckbox.checked) {
+        alert("Please accept the terms and conditions to proceed.");
+    } else {
+        // Redirect to another page (replace 'another-page.html' with your target page)
+        window.location.href = 'payment.html';
+    }
+};
+
+
     </script>
 
 </body>
