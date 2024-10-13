@@ -84,9 +84,10 @@
         form input {
             width: 100%;
             margin-bottom: 10px;
-            padding: 8px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 16px;
         }
         form button {
             padding: 10px;
@@ -137,13 +138,25 @@
             text-decoration: none;
             cursor: pointer;
         }
+        ul li a:hover{
+                background-color: rgba(255, 255, 255, 0.9);
+                color: black;
+            }
+           ul li{
+                   
+            }
+            ul li a{
+                height: 100%;
+                padding: 10px 50px;
+                height: 50px;
+            }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <div class="logo" onclick="window.history.back()">
-            <a style="text-decoration: none; color: white;" href="javascript:history.back()">&larr; </a>
+            <a style="text-decoration: none; color: white;" href="./game.html">&larr; </a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
         <ul id="nav-list">
