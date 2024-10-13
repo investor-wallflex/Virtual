@@ -2,161 +2,157 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Payment Form</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: orange;
+            background-color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: black;
         }
+
         .navbar {
             display: flex;
             justify-content: space-between;
             padding: 10px;
             color: white;
+           
         }
+
         .navbar ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .navbar ul li {
             display: inline;
             margin: 0 15px;
         }
+
         .navbar ul li a {
-            color: black;
+            color: white;
             text-decoration: none;
-            align-items: center;
             font-size: larger;
             font-weight: bolder;
         }
-        nav a {
-            height: 100%;
-            padding: 0 50px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            color: black;
-            font-size: larger;
-            font-weight: bolder;
-        }
-        nav li a:hover {
-            background-color: #f0f0f0;
+
+        .navbar ul li a.active {
+            color: orange; /* Change link color to orange when active */
         }
 
         .navbar .hamburger {
             display: none;
             cursor: pointer;
         }
+
         @media (max-width: 768px) {
             .navbar ul {
                 display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 50px;
-                background-color: rgba(255, 255, 255, 0.2);
+                background-color: rgba(255, 255, 255, 0.9);
                 backdrop-filter: blur(10px);
                 box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
                 width: 100%;
                 align-items: flex-start;
-                justify-content: flex-start;
             }
+
             .navbar ul.show {
                 display: flex;
             }
-            .navbar ul li {
-                margin: 10px 0; /* Space between items */
-                width: 100%; /* Makes items full-width */
-            }
+
             .navbar .hamburger {
                 display: block;
             }
         }
+
         form {
             max-width: 400px;
             margin: auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            background: white;
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         form input {
             width: 100%;
             margin-bottom: 10px;
             padding: 12px;
-            border: 1px solid #ccc;
+            border: none;
             border-radius: 4px;
             font-size: 16px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
+
         form button {
             padding: 10px;
-            background-color: #28a745;
+            background-color: orange;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
+
         h1 {
             text-align: center;
             margin: 20px 0;
         }
+
         /* Modal styles */
         .modal {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
-            z-index: 1; /* Sit on top */
+            z-index: 1;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
             justify-content: center;
             align-items: center;
         }
+
         .modal-content {
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 300px; /* Adjust as needed */
+            max-width: 300px;
         }
+
         .modal-content img {
-            width: 100%; /* Responsive image */
+            width: 100%;
             height: auto;
         }
+
         .close {
             color: #aaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
         }
+
         .close:hover,
         .close:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
         }
-        ul li a:hover{
-                background-color: rgba(255, 255, 255, 0.9);
-                color: black;
-            }
-           ul li{
-                   
-            }
-            ul li a{
-                height: 100%;
-                padding: 10px 50px;
-                height: 50px;
-            }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <div class="logo" onclick="window.history.back()">
-            <a style="text-decoration: none; color: white;" href="./game.html">&larr; </a>
+            <a style="text-decoration: none; color: black;" href="./game.html">&larr; </a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
         <ul id="nav-list">
@@ -167,45 +163,54 @@
             <li><a href="#">Blog</a></li>
         </ul>
     </div>
+
     <h1>Payment Form</h1>
-    <form id="payment-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="text" placeholder="State" required>
-        <input type="text" placeholder="Address" required>
-        <input type="number" placeholder="Amount" required>
-        <input type="text" placeholder="Account Number" required>
-        <input type="text" placeholder="Bank Name" required>
-        <button type="submit">Pay</button>
-    </form>
+    <div class="container">
+        <form id="payment-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="text" placeholder="State" required>
+            <input type="text" placeholder="Address" required>
+            <input type="number" placeholder="Amount" required>
+            <input type="text" placeholder="Account Number" required>
+            <input type="text" placeholder="Bank Name" required>
+            <button type="submit">Pay</button>
+        </form>
+    </div>
 
     <!-- Modal -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <img src="./images/download j.png" alt="Payment Successful"> <!-- Replace with your image -->
+            <img src="./images/download j.png" alt="Payment Successful">
         </div>
     </div>
 
     <script>
         document.getElementById('payment-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevents the default form submission
-            openModal(); // Show the modal
+            event.preventDefault();
+            openModal();
         });
 
         function toggleMenu() {
             const navList = document.getElementById('nav-list');
+            const links = navList.querySelectorAll('li a');
             navList.classList.toggle('show');
+
+            if (navList.classList.contains('show')) {
+                links.forEach(link => link.classList.add('active'));
+            } else {
+                links.forEach(link => link.classList.remove('active'));
+            }
         }
 
         function openModal() {
-            document.getElementById('paymentModal').style.display = "flex"; // Show the modal
+            document.getElementById('paymentModal').style.display = "flex";
         }
 
         function closeModal() {
-            document.getElementById('paymentModal').style.display = "none"; // Hide the modal
+            document.getElementById('paymentModal').style.display = "none";
         }
 
-        // Close the modal if the user clicks anywhere outside of it
         window.onclick = function(event) {
             const modal = document.getElementById('paymentModal');
             if (event.target == modal) {
