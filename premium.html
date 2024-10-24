@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet UI</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .header img {
+            border-radius: 50%;
+        }
+
+        .security-badge {
+            background-color: red;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .balance-container {
+            padding: 20px;
+        }
+
+        .balance-box {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .payments-section {
+            background-color: #333; /* Match with the balance box */
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px; /* Space from previous section */
+            width: 100%; /* Full width */
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 20px; /* Space between items */
+        }
+
+        .payment-option {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            border-top: 1px solid #333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #000;
+        }
+
+        .footer div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <img src="https://via.placeholder.com/40" alt="Profile" />
+        </div>
+        <div class="security-badge">
+            Improve security
+        </div>
+    </div>
+
+    <div class="balance-container">
+        <h2>Wallflex</h2>
+        <div class="balance-box">
+            <h3>Main Account Balance</h3>
+            <p>351.26 NGN</p>
+        </div>
+
+        <div class="payments-section">
+            <div class="payment-option">
+                <h3>Make a Payment</h3>
+                <p>Electricity Bills <br>Buy Data <br>Other Payments</p>
+                
+            </div>
+            <div class="payment-option">
+                <h3>Talk to Expert</h3>
+                <p>Connect with leading specialists across all fields instantly! Whether you have a medical question, legal concern, or need advice in any other area, our experts are here to provide personalized guidance and support.</p>
+            </div>
+            <div class="payment-option">
+                <h3>Daily Premium Sports Predictions</h3>
+                <p>Stay ahead of the game with our daily premium sports predictions! Get expert analysis and insights on upcoming matches to help you make informed betting decisions. Whether it's football, basketball, or any other sport, we provide you with the best forecasts and strategies every day. Don't miss out on your chance to win big!</p>
+            </div>
+            <div class="payment-option">
+                <h3>Storytime</h3>
+                <p>An audio feature where kids can listen to stories or have them read aloud./p>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <div>Home</div>
+        <div>Nelson-Mart</div>
+        <div>Wallet</div>
+        <div>Forum</div>
+    </div>
+
+</body>
+</html>
