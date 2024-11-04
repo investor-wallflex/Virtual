@@ -2,34 +2,244 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <title>Loading Screen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League Virtual Random Result Generator</title>
+    <link rel="icon" href="./images/pl-main-logo.png">
     <style>
-        body {
-            background: url(./images/download.jpeg) no-repeat center center fixed;
-            background-size: repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+
+body {
             font-family: Arial, sans-serif;
-            min-width: 100%;
+            background-color: black; /* Ensure this line is present */
+            font-weight: bolder;
+            color: white
         }
 
-        #spinner {
+        /*nav bar css start here*/
+        
+        nav{
+    background-color: ;
+   
+    
+                }
+            nav ul{
+                width: 100%;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav li{
+                height: 50px;
+            }
+            nav a{
+                height: 100%;
+                padding: 0 50px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                color: white;
+            }
+            nav a:hover{
+               background-color: orange;
+                color: white;
+            }
+            nav li:first-child{
+                margin-right: 100px;
+                
+            }
+            .slidebar{
+                position: fixed;
+                top:0;
+                right: 0;
+                height: 100vh;
+                width: 250px;
+                z-index: 999;
+                background-color: rgba(255, 255, 255, 0.9); 
+                backdrop-filter: blur(10px);
+                box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content:flex-start;
+                
+            }
+            .slidebarli a{
+                width: 100%;
+
+            }
+            .slidebar a{
+                width: 100%;
+                color: black;
+
+            }
+            .menuButton{
+                display: none;
+                }
+           
+
+        /*nar bar css ends here*/
+
+        table {
+            width: 100%; /* Change to 100% */
+            margin: 20px auto;
+            border-collapse: collapse;
+            
+        }
+        table, th, td {
+            border: 5px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center; /* Center text in all cells */
+           
+        }
+        td{
+            font-weight: bolder;
+        }
+        th {
+            background-color: orange;
+            font-weight: bolder;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bolder;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: larger;
+            background-color: orange;
+            color: black;
+            border: none;
+            border-radius: 0 5px;
+            font-weight: bolder;
+        }
+        img {
+            width: 30px; /* Adjust size as needed */
+            height: auto;
+        }
+
+        .reset {
+            margin-top: 10px;
+            background-color: orange;
+            border-radius: 0 5px;
+            color: black;
+        }
+        @media(max-width: 600px) {
+            .hideOnMobile {
+                display: none;
+            }
+            .menuButton {
+                display: block; /* Show hamburger icon */
+                margin-left: auto;
+                padding: 10px;
+            }
+            
+            .button-container {
+        flex-direction: row; /* Stack buttons vertically on mobile */
+        
+        
+    }
+
+    .button-container button {
+        margin: 15px 0; /* Add vertical space between buttons */
+    }
+
+    .prediction-info {
+    text-align: center; /* Center the text */
+    font-size: 16px; /* Adjust the font size */
+    margin: 20px 0; /* Space above and below the paragraph */
+    color: #333; /* Change the text color */
+    }
+    nav a:hover{
+        background-color: rgba(255, 255, 255, 0.9);
+                color:black;
+            }
+            
+        
+        }
+
+        .button-container {
+        display: flex;
+        justify-content: space-between; /* Space between buttons */
+        margin: 20px auto; /* Adjusts vertical spacing */
+        width: 100%; /* Set width to fit your layout */
+    }
+
+        .button-container button {
+         flex: 1; /* Allow buttons to grow and fill the container */
+         margin: 0 15px; /* Add space between buttons */
+        }
+
+        .terms-container {
+        text-align: center; /* Center-aligns the checkbox and label */
+        margin-top: 20px; /* Space above the terms paragraph */
+    }
+
+        .prediction-info {
+        text-align: center; /* Center the text */
+        font-size: ; /* Adjust the font size */
+        margin: 20px 0; /* Space above and below the paragraph */
+        color:white; /* Change the text color */
+        
+    }
+    .prediction-info a{
+        color: orange;
+    }
+
+    /*this is where the styling for the upcoming fixture*/
+
+         /* Style for buttons in the "Actions" column */
+    .actions-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .actions-container button {
+        width: 100px;
+        height: 40px;
+        background-color: orange;
+        color:white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    .actions-container button:hover {
+        background-color: darkorange;}
+        @media (max-width: 600px) {
+    /* Adjust button width and height for mobile */
+    .actions-container button {
+        width: 100%; /* Make the buttons take full width */
+        height: 50px; /* Adjust the height to be larger for easier tapping */
+        font-size: 16px; /* Adjust the font size for readability */
+        margin-bottom: 10px; /* Add spacing between buttons for mobile */
+    }
+
+    /* Adjust table padding and images slightly for better readability on mobile */
+    #upcomingFixturesTable td,
+    #upcomingFixturesTable th {
+        padding: 10px;
+    }
+
+    #upcomingFixturesTable img {
+        width: 25px; /* Reduce logo size slightly for mobile */
+        height: auto;
+    }
+}
+
+
+    /*this is where the styling for upcoming fixture stops*/
+
+
+    #spinner {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            display: flex; /* Display flex to center loader */
-            align-items: center;
-            justify-content: center;
-            width: 100px;
-            height: 100px;
+            display: none; /* Hidden by default */
         }
-
         .loader {
             border: 16px solid #f3f3f3; /* Light grey */
             border-top: 16px solid #3498db; /* Blue */
@@ -38,46 +248,352 @@
             height: 60px;
             animation: spin 2s linear infinite;
         }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        /* Responsive adjustments for mobile */
-        @media (max-width: 600px){
-            .loader {
-                width: 40px;
-                height: 40px;
-                border-width: 8px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .loader {
-                width: 30px;
-                height: 30px;
-                border-width: 6px;
-            }
-        }
-    </style>
+    
+</style>
 </head>
 <body>
-    <!--spinner-->
+    <!--nav bar start here-->
+
+    <nav>
+        <ul class="slidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#5f6368">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg></a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="#">Forum</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul>
+            <li style="margin-right: 200px;"><img src="./images/pl-main-logo.png" alt="">
+            <li class="hideOnMobile"><a href="./login.html">Login</a></li>
+            <li class="hideOnMobile"><a href="#">Product</a></li>
+            <li class="hideOnMobile"><a href="./about.html">About</a></li>
+            <li class="hideOnMobile"><a href="#">Forum</a></li>
+            <li class="hideOnMobile"><a href="./contact.html">Contact</a></li>
+            <li class="menuButton" onclick=showSidebar()><a style="color: white;" href="#">☰</a></li>
+        </ul>
+    </nav>
+
+
+    <!--nav bar section ends here-->
+    
+    
+    
+    <h2>Premier League Fixtures</h2>
+
+    <table id="fixturesTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Home Team</th>
+                <th></th>
+                <th>Away Team</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--spinner-->
     <div id="spinner">
         <div class="loader"></div>
     </div>
     <!--spinner-->
+            <!-- Rows will be generated by JavaScript -->
+        </tbody>
+    </table><!--table ends here-->
+
+
+    <!--The new fixture to select game-->
+
+    <h2>Upcoming Fixtures</h2>
+
+    <table id="upcomingFixturesTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Home Team</th>
+                <th></th>
+                <th>Away Team</th>
+                <th>Predictions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be generated by JavaScript -->
+        </tbody>
+    </table>
+
+    <!--The new fixture to select game-->
+
+    <!--list of bet-->
+        <!-- Cart to show selected bets -->
+            <h2>List of Bet</h2>
+            <ul id="betCart"></ul>
+    <!--list of bet-->
+
+    <div class="button-container">
+        <button onclick="startGame()">Start</button>
+        <button class="reset" onclick="resetGame()">Reset</button>
+    </div>
+    
+    <!--terms and condition start from here-->
+    <p class="terms-container">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">I accept the term s and conditions.</label>
+    </p>
+    
+
+    <p class="prediction-info">
+       <a href="./payment.html" onclick="handlePredictionClick(event)">Click here </a> for match predictions with a 75% accuracy guarantee.
+    </p>
+    
 
     <script>
+        // nav bar function button for mobile
+
+        function showSidebar() {
+            let slidebar = document.querySelector('.slidebar')
+            slidebar.style.display = 'flex'
+        }
+        function hideSidebar(){
+            let slidebar =document.querySelector('.slidebar')
+            slidebar.style.display = 'none'
+        }   
+
+        // nav bar function button for mobile ends here
+        let teams = [
+            { name: "BOU", img: "./images/t91.png" },
+            { name: "BRE", img: "./images/t94.png" },
+            { name: "WOL", img: "./images/t39.png" },
+            { name: "FOR", img: "./images/t17.png" },
+            { name: "NEW", img: "./images/t4.png" },
+            { name: "WHU", img: "./images/t21.png" },
+            { name: "BHA", img: "./images/t36.png" },
+            { name: "EVE", img: "./images/t11.png" },
+            { name: "FUL", img: "./images/t54.png" },
+            { name: "IPS", img: "./images/t40.png" }
+        ];
+
+        let awayTeams = [
+            { name: "MUN", img: "./images/t1.png" },
+            { name: "AST", img: "./images/t7.png" },
+            { name: "MCI", img: "./images/t43.png" },
+            { name: "LEI", img: "./images/t13.png" },
+            { name: "SOU", img: "./images/t20.png" },
+            { name: "CHE", img: "./images/t8.png" },
+            { name: "LIV", img: "./images/hj.svg" },
+            { name: "CRY", img: "./images/t31.png" },
+            { name: "TOT", img: "./images/t6.png" },
+            { name: "ARS", img: "./images/t3.png" }
+        ];
+
+        let isStarted = false;
+        let currentFixtures = [];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function generateRandomScore(maxTotalGoals) {
+            let totalGoals = Math.floor(Math.random() * (maxTotalGoals + 1));
+            let homeGoals = Math.floor(Math.random() * (totalGoals + 1));
+            let awayGoals = totalGoals - homeGoals;
+            return { home: homeGoals, away: awayGoals };
+        }
+
+        function displayFixtures() {
+            let tableBody = document.querySelector("#fixturesTable tbody");
+            tableBody.innerHTML = "";
+
+            currentFixtures.forEach((fixture, index) => {
+                let score = isStarted ? generateRandomScore(6) : { home: 0, away: 0 };
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td><img src="${fixture.home.img}" alt="${fixture.home.name} logo"> ${fixture.home.name}</td>
+                    <td>vs</td>
+                    <td><img src="${fixture.away.img}" alt="${fixture.away.name} logo"> ${fixture.away.name}</td>
+                    <td>${score.home} : ${score.away}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // for upcoming fixture to shuffle along side with the top table
+
+        function displayUpcomingFixtures() {
+        let tableBody = document.querySelector("#upcomingFixturesTable tbody");
+        tableBody.innerHTML = "";
+        
+        currentFixtures.forEach((fixture, index) => {
+        let row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td><img src="${fixture.home.img}" alt="${fixture.home.name} logo"> ${fixture.home.name}</td>
+            <td>vs</td>
+            <td><img src="${fixture.away.img}" alt="${fixture.away.name} logo"> ${fixture.away.name}</td>
+            <td class="actions-container">
+                <button onclick="predictGame(${index})">HOME</button>
+                <button onclick="viewDetails(${index})">DRAW</button>
+                <button onclick="shareFixture(${index})">AWAY</button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+   // for upcoming fixture to shuffle along side with the top table
+
+        function startGame() {
+            isStarted = true;
+            displayFixtures();
+        }
+
+        function resetGame() {
+            isStarted = false;
+
+            // Shuffle both teams
+            let shuffledTeams = shuffleArray([...teams]);
+            let shuffledAwayTeams = shuffleArray([...awayTeams]);
+
+            // Create fixtures with random switching of home and away teams
+            currentFixtures = shuffledTeams.map((homeTeam, index) => {
+                let awayTeam = shuffledAwayTeams[index];
+                if (Math.random() < 0.5) { // Randomly switch home and away teams
+                    return { home: awayTeam, away: homeTeam };
+                } else {
+                    return { home: homeTeam, away: awayTeam };
+                }
+            });
+
+            displayFixtures();
+            displayUpcomingFixtures(); 
+        }
+
+        // Initial display of fixtures
+        resetGame();
+
+        function handlePredictionClick(event) {
+    const termsCheckbox = document.getElementById('terms');
+    if (!termsCheckbox.checked) {
+        alert("Please accept the terms and conditions to proceed.");
+    } else {
+        // Redirect to another page (replace 'another-page.html' with your target page)
         window.onload = function() {
-            const spinner = document.getElementById('spinner');
             spinner.style.display = 'flex'; // Show spinner
 
-            setTimeout(() => {
-                window.location.href = 'game.html'; 
-            }, 3000); // Show spinner for 3 seconds
+        setTimeout(() => {
+            window.location.href = 'payment.html'; 
+        }, 3000); // Show spinner for 3 seconds
         };
+    }
+};
+
+
+        // for the fixture 
+
+        function displayUpcomingFixtures() {
+        let tableBody = document.querySelector("#upcomingFixturesTable tbody");
+        tableBody.innerHTML = "";
+
+        currentFixtures.forEach((fixture, index) => {
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td><img src="${fixture.home.img}" alt="${fixture.home.name} logo"> ${fixture.home.name}</td>
+                <td>vs</td>
+                <td><img src="${fixture.away.img}" alt="${fixture.away.name} logo"> ${fixture.away.name}</td>
+                <td class="actions-container">
+                    <button onclick="predictGame(${index})">Predict</button>
+                    <button onclick="viewDetails(${index})">Details</button>
+                    <button onclick="shareFixture(${index})">Share</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+    // Display the upcoming fixtures after resetting the game
+    displayUpcomingFixtures();
+
+
+
+
+
+
+    // Bet cart to hold selected fixtures and actions
+    let betCart = [];
+
+    // Function to add the selected fixture and action to the bet cart
+    function addToCart(index, action) {
+        let fixture = currentFixtures[index];
+        let bet = `${fixture.home.name} vs ${fixture.away.name} - ${action}`;
+        betCart.push(bet);
+        displayCart();
+    }
+
+    // Function to display the cart
+    function displayCart() {
+        let cartList = document.getElementById("betCart");
+        cartList.innerHTML = ""; // Clear previous content
+        betCart.forEach((bet, index) => {
+            let listItem = document.createElement("li");
+            listItem.textContent = bet;
+            cartList.appendChild(listItem);
+        });
+    }
+
+    // Modify the existing function to pass action to addToCart
+    function predictGame(index) {
+        addToCart(index, "Home");
+    }
+
+    function drawGame(index) {
+        addToCart(index, "Draw");
+    }
+
+    function awayGame(index) {
+        addToCart(index, "Away");
+    }
+
+    // Displaying upcoming fixtures with new actions
+    function displayUpcomingFixtures() {
+        let tableBody = document.querySelector("#upcomingFixturesTable tbody");
+        tableBody.innerHTML = "";
+
+        currentFixtures.forEach((fixture, index) => {
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td><img src="${fixture.home.img}" alt="${fixture.home.name} logo"> ${fixture.home.name}</td>
+                <td>vs</td>
+                <td><img src="${fixture.away.img}" alt="${fixture.away.name} logo"> ${fixture.away.name}</td>
+                <td class="actions-container">
+                    <button onclick="predictGame(${index})">Home</button>
+                    <button onclick="drawGame(${index})">Draw</button>
+                    <button onclick="awayGame(${index})">Away</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+
+
+
+
+
     </script>
+
 </body>
 </html>
